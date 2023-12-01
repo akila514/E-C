@@ -1,4 +1,3 @@
-import HeroCarousel from "@/components/HeroCarousel";
 import Searchbar from "@/components/Searchbar";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
@@ -23,16 +22,17 @@ const Home = () => {
               <ArrowRight size={20} className="flex my-auto" />
             </div>
             <h1 className="font-bold text-3xl">
-              Unleash the power of
-              <span className="ml-2 text-[#e74c3c]">Price Tracker</span>
+              Welcome to
+              <span className="ml-2 text-[#e74c3c]">ProShop</span>
             </h1>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
               aliquam impedit tempora ex enim tenetur odio?
             </p>
-            <Searchbar />
+            <button type="submit" className="btn w-min text-sm">
+              View Special Offers
+            </button>
           </div>
-          {/* <HeroCarousel /> */}
         </div>
       </section>
       <section className="mt-10">

@@ -1,23 +1,36 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 const Searchbar = () => {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const [searchPrompt, setSearchPrompt] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const isValidAmazonProductURL = (url: string) => {
+    try {
+      const parsedUrl = new URL(url);
+      const hostName = parsedUrl.hostname;
+
+      if (
+        hostName.includes("www.amazon.com") ||
+        hostName.includes("www.amazon.") ||
+        hostName.endsWith("amazon.")
+      ) {
+        return true;
+      }
+    } catch (error) {
+      return false;
+    }
   };
 
   return (
-    <form className="flex flex-wrap gap-4 mt-12" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Enter product link"
-        className="bg-transparent border p-2 rounded-md border-[#252525] focus:outline-none focus:border-[#e74c3c]"
-      />
-      <button type="submit" className="btn">
-        Search
-      </button>
-    </form>
+    <input
+      value={searchPrompt}
+      onChange={(e) => setSearchPrompt(e.target.value)}
+      type="text"
+      placeholder="Search Products"
+      className="flex my-auto bg-transparent border p-2 rounded-md border-[#474747] focus:outline-none focus:border-[#e74c3c]"
+    />
   );
 };
 
