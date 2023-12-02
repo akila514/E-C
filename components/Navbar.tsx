@@ -51,11 +51,11 @@ const Navbar = ({ currentUser }: NavbarProps) => {
           <Search className="flex my-auto" />
           <Heart className="flex my-auto" />
           <UserIcon className="flex my-auto" />
-          {currentUser && (
-            <Link href="/cart" className="flex my-auto">
-              <ShoppingCart />
-            </Link>
-          )}
+
+          <Link href="/cart" className="flex my-auto">
+            <ShoppingCart />
+          </Link>
+
           {!currentUser && (
             <>
               <Link className="flex my-auto" href="/login">
