@@ -1,6 +1,6 @@
 "use client";
 
-import { Search, Heart, User as UserIcon } from "lucide-react";
+import { Search, Heart, User as UserIcon, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import Searchbar from "./Searchbar";
@@ -51,6 +51,11 @@ const Navbar = ({ currentUser }: NavbarProps) => {
           <Search className="flex my-auto" />
           <Heart className="flex my-auto" />
           <UserIcon className="flex my-auto" />
+          {currentUser && (
+            <Link href="/cart" className="flex my-auto">
+              <ShoppingCart />
+            </Link>
+          )}
           {!currentUser && (
             <>
               <Link className="flex my-auto" href="/login">

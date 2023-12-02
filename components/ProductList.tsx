@@ -10,14 +10,7 @@ const ProductList = ({ products }: ProductListProps) => {
   return (
     <div className="flex flex-wrap gap-4">
       {products.map((product) => (
-        <ProductCard
-          key={product.id}
-          productId={product.id}
-          name={product.name}
-          desc={product.description}
-          imageUrl={product.image}
-          price={product.price}
-        />
+        <ProductCard key={product.id} product={product} />
       ))}
     </div>
   );
