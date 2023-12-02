@@ -1,5 +1,6 @@
 "use client";
 
+import { signIn } from "next-auth/react";
 import React from "react";
 
 const LoginForm = () => {
@@ -24,6 +25,15 @@ const LoginForm = () => {
       </div>
       <button type="submit" className="mt-10 btn">
         Login
+      </button>
+      <button
+        type="button"
+        onClick={() => {
+          signIn("github");
+        }}
+        className="mt-10 btn"
+      >
+        Continue with GitHub
       </button>
     </form>
   );

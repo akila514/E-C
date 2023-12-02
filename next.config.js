@@ -5,6 +5,7 @@ const nextConfig = {
       "res.cloudinary.com",
       "avatars.githubusercontent.com",
       "images.unsplash.com",
+      "utfs.io",
     ],
   },
 };
