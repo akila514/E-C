@@ -30,7 +30,9 @@ const ProductDescriptionPage = async ({
               {product.description}
             </p>
             <h1 className="font-bold text-2xl">${product.price}</h1>
-            <AddToCartButton product={product} />
+            <div className="w-[150px]">
+              <AddToCartButton product={product} />
+            </div>
           </div>
         </div>
       )}

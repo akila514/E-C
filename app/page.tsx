@@ -40,8 +40,10 @@ const Home = async () => {
         </div>
       </section>
       <section className="mt-10">
-        <h2 className="font-bold text-2xl">Trending</h2>
-        <div className="flex flex-wrap gap-x-8 gap-16">Map trending items</div>
+        <h2 className="font-bold text-2xl mt-5">Trending</h2>
+        <div className="flex flex-wrap gap-x-8 gap-16 mb-5">
+          Map trending items
+        </div>
         <TrendingList trendingProducts={trendingProducts} />
       </section>
     </>

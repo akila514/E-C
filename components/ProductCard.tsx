@@ -32,22 +32,22 @@ const ProductCard = ({ product }: ProductCardProps) => {
   };
 
   return (
-    <div className="rounded-md flex flex-col w-[250px] outline outline-gray-100">
-      <div className="w-[250px] h-[150px] overflow-hidden truncate whitespace-nowrap">
+    <div className="rounded-md flex flex-col w-[200px] outline outline-gray-100 mx-auto md:mx-0">
+      <div className="w-[200px] h-[150px] overflow-hidden truncate whitespace-nowrap">
         <Link href={`products/${product.id}`}>
           <Image
             src={product.image}
             alt={product.name}
-            width={250}
+            width={200}
             height={200}
             className="rounded-t-md object-cover"
           />
         </Link>
       </div>
       <div className="flex flex-col p-2 space-y-2">
-        <h1 className="font-bold text-lg truncate">{product.name}</h1>
+        <h1 className="font-bold truncate">{product.name}</h1>
         <div className="flex flex-row justify-between">
-          <h1 className="text-lg font-medium">${product.price}</h1>
+          <h1 className="font-medium">${product.price}</h1>
           <h1 className="text-sm flex my-auto">Stock {product.quantity}</h1>
         </div>
         <hr />

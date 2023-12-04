@@ -21,7 +21,7 @@ const AddToCartButton = ({ product }: AddToCartProps) => {
   };
   return (
     <button
-      className="btn md:w-[150px] text-sm"
+      className="btn text-sm"
       onClick={() => {
         handleOnAddToCart(product);
       }}
