@@ -5,8 +5,8 @@ import React from "react";
 const ProductsPage = async () => {
   const products = await getProducts();
   return (
-    <div>
-      <h1 className="text-2xl font-bold my-10 md:mt-24">All Products</h1>
+    <div className="md:mt-24 px-5">
+      <h1 className="text-2xl font-bold my-10">All Products</h1>
       <ProductList products={products} />
     </div>
   );

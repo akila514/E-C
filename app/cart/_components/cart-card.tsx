@@ -1,6 +1,6 @@
 "use client";
 
-import { CartItem } from "@/hooks/use-cart";
+import { CartItem, UseCartStore } from "@/hooks/use-cart";
 import React from "react";
 
 interface CartCardProps {
@@ -8,6 +8,12 @@ interface CartCardProps {
 }
 
 const CartCard = ({ cartItem }: CartCardProps) => {
+  const cart = UseCartStore();
+
+  const removeCartItemHandler = () => {
+    cart.removeProduct(cartItem.productId);
+  };
+
   return (
     <div className="w-full p-4 rounded-md border flex flex-row justify-between">
       <div className="w-1/2">
@@ -20,7 +26,12 @@ const CartCard = ({ cartItem }: CartCardProps) => {
         <h1 className="flex my-auto text-lg font-bold">
           $ {cartItem.price * cartItem.amount}
         </h1>
-        <button className="btn text-sm flex my-auto">Remove</button>
+        <button
+          onClick={removeCartItemHandler}
+          className="btn text-sm flex my-auto"
+        >
+          Remove
+        </button>
       </div>
     </div>
   );

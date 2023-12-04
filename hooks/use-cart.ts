@@ -3,6 +3,7 @@ import { create } from "zustand";
 
 export type CartItem = {
   name: string;
+  productId: string;
   price: number;
   amount: number;
 };
@@ -48,7 +49,7 @@ export const UseCartStore = create<CartStore>((set) => ({
     }),
   removeProduct: (productId: string) =>
     set((state) => ({
-      cartItems: state.cartItems.filter((item) => item.name !== productId),
+      cartItems: state.cartItems.filter((item) => item.productId !== productId),
     })),
   setCartItems: (products: CartItem[]) =>
     set(() => ({

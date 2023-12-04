@@ -5,6 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { UseCartStore } from "@/hooks/use-cart";
 import { Product } from "@prisma/client";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import AddToCartButton from "./AddToCartButton";
 
 interface ProductCardProps {
   product: Product;
@@ -12,13 +15,24 @@ interface ProductCardProps {
 
 const ProductCard = ({ product }: ProductCardProps) => {
   const cart = UseCartStore();
+  const router = useRouter();
 
   const handleOnAddToCart = (product: Product) => {
-    cart.addProduct({ name: product.name, price: product.price, amount: 1 });
+    cart.addProduct({
+      name: product.name,
+      price: product.price,
+      amount: 1,
+      productId: product.id,
+    });
+  };
+
+  const handleOnAddToWishlist = async (product: Product) => {
+    await axios.post("/api/wishlist", { productId: product.id });
+    router.refresh();
   };
 
   return (
-    <div className="rounded-md flex flex-col w-[250px] border">
+    <div className="rounded-md flex flex-col w-[250px] outline outline-gray-100">
       <div className="w-[250px] h-[150px] overflow-hidden truncate whitespace-nowrap">
         <Link href={`products/${product.id}`}>
           <Image
@@ -26,7 +40,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             alt={product.name}
             width={250}
             height={200}
-            className="rounded-t-md object-cover p-1"
+            className="rounded-t-md object-cover"
           />
         </Link>
       </div>
@@ -37,17 +51,15 @@ const ProductCard = ({ product }: ProductCardProps) => {
           <h1 className="text-sm flex my-auto">Stock {product.quantity}</h1>
         </div>
         <hr />
-        <button className="btn-secondary text-sm" onClick={() => {}}>
-          Add to Wishlist
-        </button>
         <button
-          className="btn text-sm"
+          className="btn-secondary text-sm"
           onClick={() => {
-            handleOnAddToCart(product);
+            handleOnAddToWishlist(product);
           }}
         >
-          Add to Cart
+          Add to Wishlist
         </button>
+        <AddToCartButton product={product} />
       </div>
     </div>
   );

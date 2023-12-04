@@ -3,6 +3,7 @@ import Image from "next/image";
 import { getProduct } from "@/lib/actions/get-product";
 import { UseCartStore } from "@/hooks/use-cart";
 import { Product } from "@prisma/client";
+import AddToCartButton from "@/components/AddToCartButton";
 
 const ProductDescriptionPage = async ({
   params,
@@ -10,14 +11,9 @@ const ProductDescriptionPage = async ({
   params: { productId: string };
 }) => {
   const product = await getProduct(params.productId);
-  const cart = UseCartStore();
-
-  const handleOnAddToCart = (product: Product) => {
-    cart.addProduct({ name: product.name, price: product.price, amount: 1 });
-  };
 
   return (
-    <div className="w-full flex flex-col mt-10">
+    <div className="w-full flex flex-col mt-24">
       {product && (
         <div className="w-full flex flow-row space-x-5 md:space-x-10">
           <Image
@@ -34,14 +30,7 @@ const ProductDescriptionPage = async ({
               {product.description}
             </p>
             <h1 className="font-bold text-2xl">${product.price}</h1>
-            <button
-              className="btn md:w-[150px] text-sm"
-              onClick={() => {
-                handleOnAddToCart(product);
-              }}
-            >
-              Add to Cart
-            </button>
+            <AddToCartButton product={product} />
           </div>
         </div>
       )}
