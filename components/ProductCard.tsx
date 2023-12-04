@@ -18,22 +18,28 @@ const ProductCard = ({ product }: ProductCardProps) => {
   };
 
   return (
-    <Link
-      href={`products/${product.id}`}
-      className="rounded-md flex flex-col w-[300px] border"
-    >
-      <div className="w-[300px] h-[150px] overflow-hidden">
-        <Image
-          src={product.image}
-          alt={product.name}
-          width={300}
-          height={300}
-          className="rounded-t-md"
-        />
+    <div className="rounded-md flex flex-col w-[250px] border">
+      <div className="w-[250px] h-[150px] overflow-hidden truncate whitespace-nowrap">
+        <Link href={`products/${product.id}`}>
+          <Image
+            src={product.image}
+            alt={product.name}
+            width={250}
+            height={200}
+            className="rounded-t-md object-cover p-1"
+          />
+        </Link>
       </div>
       <div className="flex flex-col p-2 space-y-2">
-        <h1 className="font-bold text-xl">{product.name}</h1>
-        <h1 className="text-xl text-[#e74c3c]">${product.price}</h1>
+        <h1 className="font-bold text-lg truncate">{product.name}</h1>
+        <div className="flex flex-row justify-between">
+          <h1 className="text-lg font-medium">${product.price}</h1>
+          <h1 className="text-sm flex my-auto">Stock {product.quantity}</h1>
+        </div>
+        <hr />
+        <button className="btn-secondary text-sm" onClick={() => {}}>
+          Add to Wishlist
+        </button>
         <button
           className="btn text-sm"
           onClick={() => {
@@ -43,7 +49,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           Add to Cart
         </button>
       </div>
-    </Link>
+    </div>
   );
 };
 

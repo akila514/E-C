@@ -16,6 +16,7 @@ model Product{
   name String
   price Float
   quantity Int
+  purchasedBy Int @default(0)
   description String
   image String
   createdAt DateTime @default(now())

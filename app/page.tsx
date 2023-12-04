@@ -1,12 +1,16 @@
+import getTrendingProducts from "@/lib/actions/get-trending-products";
 import Searchbar from "@/components/Searchbar";
+import TrendingList from "@/components/TrendingList";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
-const Home = () => {
+const Home = async () => {
+  const trendingProducts = await getTrendingProducts();
+
   return (
     <>
-      <section className="py-16 relative px-4 rounded-md">
+      <section className="py-16 relative px-4 rounded-md md:mt-24">
         <Image
           src="/assets/img3.jpg"
           alt="hero"
@@ -38,6 +42,7 @@ const Home = () => {
       <section className="mt-10">
         <h2 className="font-bold text-2xl">Trending</h2>
         <div className="flex flex-wrap gap-x-8 gap-16">Map trending items</div>
+        <TrendingList trendingProducts={trendingProducts} />
       </section>
     </>
   );

@@ -23,12 +23,12 @@ const Navbar = ({ currentUser }: NavbarProps) => {
   };
 
   return (
-    <header className="w-full">
+    <header className="w-full fixed top-0 left-0 right-0 z-50 px-10 bg-white bg-opacity-80">
       <nav className="text-sm py-4 flex flex-row justify-between">
         <div className="flex flex-row space-x-5 font-medium">
           <Link href="/" className="items-center flex gap-1">
             <p className="text-xl font-bold">
-              Price<span className="text-[#e74c3c]">Tracker</span>
+              Next<span className="text-[#e74c3c]">Shop</span>
             </p>
           </Link>
           <Link href="/products" className="items-center flex gap-1">
@@ -62,13 +62,13 @@ const Navbar = ({ currentUser }: NavbarProps) => {
                 Login
               </Link>
               <Link className="flex my-auto" href="/signup">
-                SignUp
+                Signup
               </Link>
             </>
           )}
           {currentUser && (
             <button onClick={onSignout} className="flex my-auto">
-              SignOut
+              Signout
             </button>
           )}
           {currentUser && currentUser.image && (

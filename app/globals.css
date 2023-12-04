@@ -36,3 +36,10 @@ a {
   background-color: #e74c3c;
   transition: all 0.2s ease-in;
 }
+
+.btn-secondary {
+  color: #252525;
+  border: 1px solid #252525;
+  padding: 10px 15px;
+  border-radius: 5px;
+}

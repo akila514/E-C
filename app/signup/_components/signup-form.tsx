@@ -43,6 +43,15 @@ const SignupForm = () => {
       >
         Continue with GitHub
       </button>
+      <button
+        type="button"
+        onClick={() => {
+          signIn("google");
+        }}
+        className="mt-10 btn"
+      >
+        Continue with Google
+      </button>
     </form>
   );
 };
