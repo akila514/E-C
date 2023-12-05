@@ -8,7 +8,7 @@ interface ProductListProps {
 
 const ProductList = ({ products }: ProductListProps) => {
   return (
-    <div className="flex flex-wrap gap-5 md:justify-between justify-center">
+    <div className="flex flex-wrap gap-5 md:justify-start justify-center">
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}

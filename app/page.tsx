@@ -1,5 +1,4 @@
 import getTrendingProducts from "@/lib/actions/get-trending-products";
-import Searchbar from "@/components/Searchbar";
 import TrendingList from "@/components/TrendingList";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
@@ -41,9 +40,7 @@ const Home = async () => {
       </section>
       <section className="mt-10">
         <h2 className="font-bold text-2xl mt-5">Trending</h2>
-        <div className="flex flex-wrap gap-x-8 gap-16 mb-5">
-          Map trending items
-        </div>
+        <div className="flex flex-wrap mb-5">Map trending items</div>
         <TrendingList trendingProducts={trendingProducts} />
       </section>
     </>

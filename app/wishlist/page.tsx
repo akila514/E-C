@@ -12,7 +12,7 @@ const WishlistPage = async () => {
         {userFavourites == null ? (
           <p>You do not have any favourites</p>
         ) : (
-          <div className="flex flex-wrap gap-5 md:justify-between justify-center">
+          <div className="flex flex-wrap gap-5 md:justify-start justify-center">
             {userFavourites.map((item) => (
               <div key={item.product.id}>
                 <ProductCard product={item.product} />

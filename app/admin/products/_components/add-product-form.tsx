@@ -169,7 +169,7 @@ const AddProduct = () => {
               }}
             />
           </div>
-          <Button disabled={isLoading} type="submit" className="mt-5">
+          <Button disabled={isLoading} type="submit" className="mt-5 btn">
             Submit
           </Button>
         </form>

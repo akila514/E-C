@@ -8,7 +8,7 @@ interface TrendingListProps {
 
 const TrendingList = ({ trendingProducts }: TrendingListProps) => {
   return (
-    <div className="flex flex-wrap gap-4 md:justify-between justify-center">
+    <div className="flex flex-wrap gap-7">
       {trendingProducts.map((product) => (
         <ProductCard product={product} key={product.id} />
       ))}
